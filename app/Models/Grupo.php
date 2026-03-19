@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Grupo extends Model
 {
     //
-}
+
 public function cursos()
 {
     return $this->hasMany(Curso::class);
@@ -16,4 +16,5 @@ public function cursos()
 public function usuarios()
 {
     return $this->hasMany(User::class);
+}
 }

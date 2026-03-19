@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kit extends Model
 {
-    //
-}
-public function cursos()
-{
-    return $this->hasMany(Curso::class);
+    protected $fillable = ['nombre'];
+
+    public function cursos()
+    {
+        return $this->hasMany(Curso::class);
+    }
 }

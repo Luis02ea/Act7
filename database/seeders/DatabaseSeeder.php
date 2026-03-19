@@ -13,13 +13,21 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
-    {
-        // User::factory(10)->create();
+  public function run(): void
+{
+    // 👇 PRIMERO crear dependencias
+    \App\Models\Grupo::insert([
+        ['nombre'=>'Principiante'],
+        ['nombre'=>'Intermedio'],
+        ['nombre'=>'Avanzado']
+    ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-    }
+    $this->call([
+        UserSeeder::class,
+        KitSeeder::class,
+    ]);
+
+    // 👇 AL FINAL cursos
+    \App\Models\Curso::factory(100)->create();
+}
 }
